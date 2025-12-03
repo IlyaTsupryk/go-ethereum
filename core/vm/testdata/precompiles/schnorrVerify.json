@@ -1,0 +1,72 @@
+[
+  {
+    "Input": "b1d5bb2d34b6c6d6c95238d7881c93c1c5108d6b55b0550aee8a0c526e217858f854d5bbec0953dfd83fb5e581d67595985f3e44e2cd9e5a9fd9b5c395a8cf01116793de0ed03e85d9a5aad7011043070ba041e6b7105d1a28c519b4b9bbc2580c6b51d3042e22abf3f50076a978409834d2b33ac8b9ffe8a9ff6100b0854fa5",
+    "Expected": "0000000000000000000000000000000000000000000000000000000000000001",
+    "Gas": 3000,
+    "Name": "Valid signature test 0",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "2af10488bf7b7a7e37cabf89574decaa6f165cccf93e96959eb9340f7057607d17ed3aeb93c00be470a0d103699249355efc63e692ff4316996972018782db159d872f55563544f7395d834505dd1390e92d5e44ddec6b3d7f5ff669ef40822ce859d60b4e3843a406f2cdd748408e62f4eccd09343ffc775d4935ebe0f621ee",
+    "Expected": "0000000000000000000000000000000000000000000000000000000000000001",
+    "Gas": 3000,
+    "Name": "Valid signature test 1",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "b31189f61cbc2814a9843ead54583a52f2e393ce45d9dea2993323a51399620fe1376261a138ed9961573eae7a0d4011ccd0d8a630be95261b1b2b8d5ca21e18a21d4d29525948efbaa2c8657c7a96723a10c963a1ae816e74d92eda9f99a2ded34e7f37a0db49a116413f6a3f009c1e3b5c9519c7f870e1ee4c2c135a317506",
+    "Expected": "0000000000000000000000000000000000000000000000000000000000000001",
+    "Gas": 3000,
+    "Name": "Valid signature test 2",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "3f0a377ba0a4a460ecb616f6507ce0d8cfa3e704025d4fda3ed0c5ca05468728cc1f232a086ec29ea6e6a0e19277ed7689b7ccfe3639e72dc263bd451b5fcbb69dbffb536bcc0ce95ccfd079527669ff6f6d81aeb41f54e433e8d34bf678ca662c54d073dd3d9ccb5322093d70c1d2764981d6082807860d02f81aa8a1545c5d",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Invalid signature - modified signature",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "3f0a377ba0a4a460ecb616f6507ce0d8cfa3e704025d4fda3ed0c5ca054687287b15e73d945323bc4940df563fa81e64a704c1510c4f9e12f725535280e44cef85c5fea4d30967cc205463f2d7825c6e504a85169801680287f904495c8b0c5df9d3787c333f58f42758ecab708b1061d67f747604b58cba4405c27a4d572504",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Invalid signature - wrong public key",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "fa3e8de0df11a0a63891e2cc88694ce692f7a7fad0c39882346f9eb01ad124a4eea2553f61a09305b30939440b70f4fa57f00018a0e3dcb5eaa1d8155b14c41643f51866bd712a5bc864fb86e92b8b8cfeefe0d1135a3107a50a689f150200f7a61e26b3f9db3dbaffa6b2a33be4c97f40ec1ec26d6dd7c588c6d90bf9570c49",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Invalid signature - wrong message",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Empty input",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "00",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Too short input (1 byte)",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "bc7203bcbe656644d61db7c51a64fd8f2cf125543b25429f1d36693bcbc0b6152e630e11e70cdf362de4cb3e9945e12b4aeb84ea6c78a83110e5b323781df6dcb421de489cd6d574f3c322d34985a7d9ab713b5b0c51823821913ffed1162d307cd724f8202edd04fe5d03c5d75586e3bd752e4c94967654e21e8a2e32d1a6",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Too short input (127 bytes)",
+    "NoBenchmark": false
+  },
+  {
+    "Input": "37af7199fe80f5a364dad5f961556d5d654e79fee2d772137976d40710f4c91b11576b90881b2a59aa4bee023253915a517605abaadbc33cc3224d3f54787bdbc2e67ec8596e9b09ecc697e8835e6e51f7943a1722bff1b92701d200803a6b2992317cd5c83493ced45b981b7a609d444e3e03a8354aa9b1568640b67d0ab31cb7",
+    "Expected": "",
+    "Gas": 3000,
+    "Name": "Too long input (129 bytes)",
+    "NoBenchmark": false
+  }
+]
