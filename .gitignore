@@ -57,3 +57,10 @@ cmd/geth/geth
 cmd/rlpdump/rlpdump
 cmd/workload/workload
 cmd/keeper/keeper
+
+# eth data directory
+data
+data-dev
+
+.env
+password.txt

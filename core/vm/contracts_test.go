@@ -67,7 +67,8 @@ var allPrecompiles = map[common.Address]PrecompiledContract{
 	common.BytesToAddress([]byte{0x0f, 0x0f}): &bls12381MapG1{},
 	common.BytesToAddress([]byte{0x0f, 0x10}): &bls12381MapG2{},
 
-	common.BytesToAddress([]byte{0x0b}): &p256Verify{},
+	common.BytesToAddress([]byte{0x0b}):      &p256Verify{},
+	common.BytesToAddress([]byte{0x1, 0x01}): &schnorrVerify{},
 }
 
 // EIP-152 test vectors
@@ -433,3 +434,15 @@ func BenchmarkPrecompiledP256Verify(bench *testing.B) {
 }
 
 func TestPrecompiledP256Verify(t *testing.T) { testJson("p256Verify", "0b", t) }
+
+// Benchmarks the sample inputs from the SCHNORRVERIFY precompile.
+func BenchmarkPrecompiledSchnorrVerify(bench *testing.B) {
+	t := precompiledTest{
+		Input:    "b1d5bb2d34b6c6d6c95238d7881c93c1c5108d6b55b0550aee8a0c526e217858f854d5bbec0953dfd83fb5e581d67595985f3e44e2cd9e5a9fd9b5c395a8cf01116793de0ed03e85d9a5aad7011043070ba041e6b7105d1a28c519b4b9bbc2580c6b51d3042e22abf3f50076a978409834d2b33ac8b9ffe8a9ff6100b0854fa5",
+		Expected: "0000000000000000000000000000000000000000000000000000000000000001",
+		Name:     "schnorrVerify",
+	}
+	benchmarkPrecompiled("0101", t, bench)
+}
+
+func TestPrecompiledSchnorrVerify(t *testing.T) { testJson("schnorrVerify", "0101", t) }

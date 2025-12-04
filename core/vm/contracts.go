@@ -38,6 +38,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto/blake2b"
 	"github.com/ethereum/go-ethereum/crypto/bn256"
 	"github.com/ethereum/go-ethereum/crypto/kzg4844"
+	"github.com/ethereum/go-ethereum/crypto/schnorr"
 	"github.com/ethereum/go-ethereum/crypto/secp256r1"
 	"github.com/ethereum/go-ethereum/params"
 	"github.com/holiman/uint256"
@@ -169,6 +170,7 @@ var PrecompiledContractsOsaka = PrecompiledContracts{
 	common.BytesToAddress([]byte{0x11}): &bls12381MapG2{},
 
 	common.BytesToAddress([]byte{0x1, 0x00}): &p256Verify{},
+	common.BytesToAddress([]byte{0x1, 0x01}): &schnorrVerify{},
 }
 
 // PrecompiledContractsP256Verify contains the precompiled Ethereum
@@ -1450,4 +1452,31 @@ func (c *p256Verify) Run(input []byte) ([]byte, error) {
 
 func (c *p256Verify) Name() string {
 	return "P256VERIFY"
+}
+
+// SCHNORRVERIFY (secp256k1 Schnorr signature verification)
+// implemented as a native contract
+type schnorrVerify struct{}
+
+// RequiredGas returns the gas required to execute the precompiled contract
+func (c *schnorrVerify) RequiredGas(input []byte) uint64 {
+	return params.SchnorrVerifyGas
+}
+
+// Run executes the precompiled contract with given 128 bytes of param, returning the output and the used gas
+func (c *schnorrVerify) Run(input []byte) ([]byte, error) {
+	const schnorrVerifyInputLength = 128
+	if len(input) != schnorrVerifyInputLength {
+		return nil, nil
+	}
+
+	hash, sig, pubkey := input[0:32], input[32:96], input[96:128]
+	if schnorr.Verify(hash, sig, pubkey) {
+		return true32Byte, nil
+	}
+	return nil, nil
+}
+
+func (c *schnorrVerify) Name() string {
+	return "SCHNORRVERIFY"
 }
