@@ -13,6 +13,7 @@ export async function generateUserKey(provider: ethers.JsonRpcProvider, name: st
 
   return {
     address: wallet.address,
+    publicKey: wallet.signingKey.publicKey,
     privateKey: privateKey
   };
 }

@@ -2,7 +2,7 @@ import { ethers } from "ethers";
 import StringStorageArtifact from "../artifacts/contracts/StringStorage.sol/StringStorage.json";
 import {generateUserKey} from "./utils.js";
 
-const CONTRACT_ADDRESS = "0x3A220f351252089D385b29beca14e27F204c296A";
+const CONTRACT_ADDRESS = "0xE74A3C7427CDA785e0000D42a705B1f3fD371E09";
 
 async function main() {
   const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8545");

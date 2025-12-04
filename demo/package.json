@@ -4,7 +4,11 @@
   "type": "module",
   "scripts": {
     "deploy": "hardhat ignition deploy ./ignition/modules/StringStorage.ts --network localhost",
-    "add-strings": "tsx scripts/add_strings.ts"
+    "add-strings": "tsx scripts/add_strings.ts",
+    "add-string-safe": "tsx scripts/add_string_safe.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.6.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^4.0.3",
